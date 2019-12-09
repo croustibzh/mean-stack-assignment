@@ -38,11 +38,7 @@ app.post('/api/players', (req, res, next) => {
 
     player.save((err, player) => {
         if (err) return console.error(err);
-        console.log(player.name + " saved to players collection.");
-    });
-
-    res.status(201).json({
-        message: "Added successfully to db"
+        console.log(player.username + " saved to players collection.");
     });
 });
 
@@ -51,9 +47,6 @@ app.get('/api/players', (req, res, next) => {
         if (!err) { res.send(docs); }
         else { console.log("Error : " + JSON.stringify(err, undefined, 2)) }
     });
-    // res.status(200).json({
-    //     message: 'Players fetched successfully!',
-    // });
 });
 
 app.get('/api/players/:id', (req, res, next) => {
